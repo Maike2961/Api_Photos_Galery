@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IKYAM | {%block title%}{%endblock title%}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <nav class="flex flex-col bg-gray-800 w-full h-15 px-3 justify-between items-center md:flex-row h-full w-full">
+        <a href="#"
+            class="transition ease-in-out delay-150 text-3xl font-semibold text-white px-4 py-3 hover:text-yellow-400">IKYAM</a>
+
+        <h1 class="text-white text-2xl tracking-wide">Images For You</h1>
+        <div class="flex space-x-5">
+            <form action="#" method="POST" class="flex flex-row justify-center items-center py-8 w-full h-full gap-x-5 ">
+                {% csrf_token %}
+                <input name="query" type="text" class="w-full border rounded-xl py-4 px-2 md: my-5 w-1/2"
+                    placeholder="Busque a sua foto">
+                <button
+                    class="transition ease-in-out delay-150 text-black text-xl font-semibold bg-yellow-500 px-5 py-4 rounded-xl hover:bg-yellow-300">Buscar</button>
+            </form>
+        </div>
+    </nav>
+    {%block content%}
+    {%endblock content%}
+</body>
+
+</html>
