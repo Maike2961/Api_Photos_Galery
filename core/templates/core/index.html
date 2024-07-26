@@ -1,4 +1,5 @@
 {%extends 'base.html'%}
+{%load static%}
 
 {%block title%} Bem-vindo {%endblock title%}
 
@@ -6,7 +7,7 @@
 <main class="flex justify-center gap-x-8 my-10 items-center py-4 flex-wrap w-full h-full md:grid grid-cols-3 gap-y-8 px-6">
     {%if images %}
     {%for image in images%}
-    <a href="{% url 'detalhes' image.query image.id%}">
+    <a href="{% url 'detalhes' image.query image.id%}" class="imagens">
         <figure class="flex flex-col justify-between items-center bg-gray-800 rounded-xl border px-10 py-8 w-full md: w-full lg:w-fulll">
             <img src="{{image.imagem}}" alt="{{image.atl}}" style="max-width: 300px; max-height: 300px" class="rounded-lg w-full h-auto">
             <figcaption class="text-lg text-center font-bold-200 py-2 text-white">{{image.alt}}</figcaption>

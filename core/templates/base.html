@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -6,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IKYAM | {%block title%}{%endblock title%}</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="{% static 'script.js'%}"></script>
 </head>
 
 <body>
@@ -17,7 +19,7 @@
         <div class="flex space-x-5">
             <form action="#" method="POST" class="flex flex-row justify-center items-center py-8 w-full h-full gap-x-5 ">
                 {% csrf_token %}
-                <input name="query" type="text" class="w-full border rounded-xl py-4 px-2 md: my-5 w-1/2"
+                <input name="query" id="input" type="text" class="w-full border rounded-xl py-4 px-2 md: my-5 w-1/2"
                     placeholder="Busque a sua foto">
                 <button
                     class="transition ease-in-out delay-150 text-black text-xl font-semibold bg-yellow-500 px-5 py-4 rounded-xl hover:bg-yellow-300">Buscar</button>

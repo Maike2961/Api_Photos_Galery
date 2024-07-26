@@ -7,7 +7,8 @@ import os
 
 load_dotenv(override=True)
 
-API_KEY = os.getenv("API_KEY")
+API_KEY = "dpyTRqVBER0fg0ec72wcRNmNkqVjVqV72HPPx2ge12D837p8O2bpiBAQ"
+
 
 SITE = 'https://api.pexels.com/v1/search'
 DETALHE_SITE = 'https://api.pexels.com/v1'
@@ -51,7 +52,8 @@ def pegar_detalhes(request, foto, id):
                 'busca': foto,
                 'fotografo': imagem['photographer'],
                 'perfil': imagem['photographer_url'],
-                'alt': imagem['alt']
+                'alt': imagem['alt'],
+                'button': ''
             }
             print(content)
             return render(request, "core/detalhes.html", content)
