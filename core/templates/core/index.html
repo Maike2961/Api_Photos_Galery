@@ -24,11 +24,11 @@
     </section>
 </main>
 {%else%}
-<section class="flex justify-center items-center p-2 w-full h-screen">
+<section class="flex justify-center items-center p-2 w-full h-full">
     <form action="#" method="POST"
-        class="flex flex-col justify-center items-center bg-gray-800 p-8 rounded-2xl gap-x-5 ">
+        class="flex flex-col justify-center items-center bg-gray-800 p-8 w-1/2 rounded-2xl">
         {% csrf_token %}
-        <input name="query" id="input" type="text" class="w-full border text-center rounded-xl py-4 px-2 md: my-5 w-1/2"
+        <input name="query" id="input" type="text" class="w-full border text-center text-lg rounded-xl py-6 px-2 md: my-5 w-1/2"
             placeholder="Busque a sua foto">
         <button
             class="transition ease-in-out delay-150 text-black text-xl font-semibold bg-yellow-500 px-5 py-4 rounded-xl hover:bg-yellow-300">Buscar</button>
