@@ -11,8 +11,9 @@
 </head>
 
 <body>
+    {%if images%}
     <nav class="flex flex-col bg-gray-800 w-full h-15 px-3 justify-between items-center md:flex-row h-full w-full">
-        <a href="#"
+        <a href="{%url 'limpar'%}"
             class="transition ease-in-out delay-150 text-3xl font-semibold text-white px-4 py-3 hover:text-yellow-400">IKYAM</a>
 
         <h1 class="text-white text-2xl tracking-wide">Images For You</h1>
@@ -26,6 +27,14 @@
             </form>
         </div>
     </nav>
+    {%else%}
+    <nav class="flex flex-col bg-gray-800 w-full h-15 px-4 py-3 justify-around items-center md:flex-row h-full w-full">
+        <a href="#"
+            class="transition ease-in-out delay-150 text-3xl font-semibold text-white px-4 py-3 hover:text-yellow-400">IKYAM</a>
+
+        <h1 class="text-white text-2xl tracking-wide">Images For You</h1>
+    </nav>
+    {%endif%}
     {%block content%}
     {%endblock content%}
 </body>

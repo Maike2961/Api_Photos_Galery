@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.files import File
 from django.core.files.temp import NamedTemporaryFile
 from dotenv import load_dotenv
@@ -33,8 +33,15 @@ def index(request):
             "images": imagens,
             }
         request.session['imagens'] = imagens
+        sessions = list(request.session.keys())
+        print(sessions)
     return render(request, 'core/index.html',content)
     
+def limpar(request):
+    sessions = list(request.session.keys())
+    for session in sessions:
+        del request.session[session]
+    return redirect("index")
 
 def autorizacao():
     return {'Authorization': API_KEY}
@@ -55,7 +62,6 @@ def pegar_detalhes(request, foto, id):
                 'alt': imagem['alt'],
                 'button': ''
             }
-            print(content)
             return render(request, "core/detalhes.html", content)
         else:
             print("erro no response")
