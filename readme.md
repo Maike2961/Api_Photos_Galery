@@ -6,6 +6,11 @@
 
 - Depois de criada copie a sua api key
 
+- Cole a sua api key na variavel constante API_KEY 
+
 - Use o comando pip install -r requirements.txt
 
-- Use o comando python manage.py runserver
+## Antes de rodar use esses comandos: 
+- python manage.py makemigrations
+- python manage.py migrate
+- python manage.py runserver
