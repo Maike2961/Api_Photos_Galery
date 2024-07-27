@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect
 from django.core.files import File
-from django.core.files.temp import NamedTemporaryFile
+from django.http import HttpResponse
 from dotenv import load_dotenv
 import requests
 import os
 
 load_dotenv(override=True)
 
-API_KEY = "dpyTRqVBER0fg0ec72wcRNmNkqVjVqV72HPPx2ge12D837p8O2bpiBAQ"
+API_KEY = os.getenv("API_KEY")
 
 
 SITE = 'https://api.pexels.com/v1/search'
@@ -18,6 +18,7 @@ def index(request):
     content = {"images": imagens}
     
     if(request.POST):
+        print(os.path.abspath(__file__))
         picture = request.POST.dict()
         foto = picture.get('query')
         responses = pegar_imagem(foto)  
@@ -50,8 +51,6 @@ def pegar_detalhes(request, foto, id):
     header = autorizacao()
     try:
         response = requests.get(f"{DETALHE_SITE}/photos/{id}", headers=header)
-        print(response.url)
-        print(response.status_code)
         if response.status_code == 200:
             imagem = response.json()
             content = {
